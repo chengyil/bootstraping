@@ -9,20 +9,20 @@ import javax.sql.DataSource;
 
 @Configuration
 public class PersistenceConfiguration {
-    @Value("${DB_URL}")
-    private String dbUrl;
-    @Value("${DB_NAME}")
-    private String dbName;
-    @Value("${DB_PASS}")
-    private String dbPass;
+    //@Value("${DB_URL}")
+    //private String dbUrl;
+    //@Value("${DB_NAME}")
+    //private String dbName;
+    //@Value("${DB_PASS}")
+    //private String dbPass;
 
-    @Bean
-    public DataSource dataSource() {
-        DataSourceBuilder builder = DataSourceBuilder.create();
-        builder.url(dbUrl);
-        builder.username(dbName);
-        builder.password(dbPass);
-        System.out.println("Built persistent build");
-        return builder.build();
-    }
+    //@Bean
+    //public DataSource dataSource() {
+    //    DataSourceBuilder builder = DataSourceBuilder.create();
+    //    builder.url(dbUrl);
+    //    builder.username(dbName);
+    //    builder.password(dbPass);
+    //    System.out.println("Built persistent build");
+    //    return builder.build();
+    //}
 }
