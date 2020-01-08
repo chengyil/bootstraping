@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  database: 
+    image: postgres:11.5-alpine
+    container_name: conference_db
+    volumes:
+      - './ps-first-spring-boot-app/init:/docker-entrypoint-initdb.d'
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Welcome
+  app:
+    build:
+      context: ./
+    image: springboot:test
+    container_name: springboot
+    env_file:
+      - .env
+    volumes:
+      - "./target:/usr/app"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    entrypoint: ['./conference-demo-0.0.1-SNAPSHOT.jar']
